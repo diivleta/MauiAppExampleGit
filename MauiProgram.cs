@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MauiAppExample.Interface;
+using MauiAppExample.Platforms;
+using Microsoft.Extensions.Logging;
 
 namespace MauiAppExample
 {
@@ -18,6 +20,8 @@ namespace MauiAppExample
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+
+            builder.Services.AddSingleton<IDeviceInfoService, DeviceInfoService>();
 
             return builder.Build();
         }
